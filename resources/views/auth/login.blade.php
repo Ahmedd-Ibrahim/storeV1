@@ -12,10 +12,10 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="identfiy" class="col-md-4 col-form-label text-md-right">{{ __('Write your Email or phone number') }}</label>
+                            <label for="identfiy" class="col-md-4 col-form-label text-md-right">{{ __('Email or phone number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="identfiy" type="text" class="form-control @error('identfiy') is-invalid @enderror" name="identfiy" value="{{ old('identfiy') }}" required autocomplete="identfiy" autofocus>
+                                <input id="identfiy" type="text" class="form-control @error('identfiy') is-invalid @enderror" placeholder="Email or phone number" name="identfiy" value="{{ old('identfiy') }}" required autocomplete="identfiy" autofocus>
 
                                 @error('identfiy')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" placeholder="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

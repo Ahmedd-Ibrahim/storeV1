@@ -22,7 +22,8 @@
             <div class="carousel-caption  d-md-block">
               <h5 class="d-none">ready to use unique items</h5>
               <div class="shop">
-                <button type="button" class="btn btn-primary btn-lg">shop now!</button>
+              <a href="{{route('collection')}}" type="button" class="btn btn-primary btn-lg"> shop now!<a>
+
               </div>
             </div>
 
@@ -32,7 +33,7 @@
             <div class="carousel-caption d-md-block">
               <h5 class="d-none">Find products for your shop!</h5>
               <div class="shop">
-                <button type="button" class="btn btn-primary btn-lg">shop now!</button>
+                <a href="{{route('collection')}}" type="button" class="btn btn-primary btn-lg"> shop now!<a>
               </div>
             </div>
           </div>
@@ -41,7 +42,7 @@
             <div class="carousel-caption  d-md-block">
               <h5 class="d-none">easest ways to pay!</h5>
               <div class="shop">
-                <button type="button" class="btn btn-primary btn-lg">shop now!</button>
+                <a href="{{route('collection')}}" type="button" class="btn btn-primary btn-lg"> shop now!<a>
               </div>
             </div>
           </div>
@@ -139,7 +140,7 @@
 
   <!-- start best seller section -->
   <section class="best-items">
-    
+
     <h3 class="text-center">BEST SELLER</h3>
     <h4 class="text-center">Top Products This week</h4>
     <div class="container">

@@ -48,6 +48,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAdminRoutes();
 
+
+
         //
     }
 
@@ -66,11 +68,10 @@ class RouteServiceProvider extends ServiceProvider
     }
     protected function mapAdminRoutes()
     {
-       
+
            Route::namespace($this->namespace)
             ->group(base_path('routes/admin.php'));
     }
-
     /**
      * Define the "api" routes for the application.
      *

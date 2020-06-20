@@ -10,7 +10,7 @@ body{
     z-index: 1;
     right: 20px;
     bottom: 80px;
-   
+
 }
 .show{
     display: block;
@@ -33,11 +33,11 @@ body{
     color: rgba(255,255,255,.5);
 }
 .navbar .dropdown-menu a{
-    
+
     color: rgba(255,255,255,.5);
 }
 .navbar .dropdown-menu a:hover{
-    
+
     background: #283f5f;
     color: #fff;
 }
@@ -87,7 +87,7 @@ main h5{
         display: block !important;
     }
 
-     /**End slider**/ 
+     /**End slider**/
 }
 @media (max-width: 768px){
     main .slider-box .w-100{
@@ -103,7 +103,7 @@ main h5{
 .sections .section-box{
     overflow: hidden;
     position: relative;
-    
+
     margin-top:10px;
 }
 .sections .section-box .sub-box{
@@ -116,13 +116,13 @@ main h5{
 
 .sections .section-box .section-box-sub:hover img{
     transform: scale(1.2);
-    
+
 }
 .sections .section-box .section-box-sub:hover .btn{
     background-color: #183153 ;
     color: #FFF;
     opacity: .9;
-    
+
 }
 .sections .section-box .top , .sections .section-box .bottom {
     overflow: hidden;
@@ -169,7 +169,7 @@ main h5{
     background-color: #183153 ;
     color: #FFF;
     opacity: .9;
-    
+
 }
 
 .sections .section-box .sub-box img{
@@ -177,7 +177,7 @@ main h5{
 }
 .sections .section-box .sub-box:hover img{
     transform: scale(1.2);
-    
+
 }
 /* 2end col in the sction */
 /* ----------End sections */
@@ -195,7 +195,7 @@ main h5{
     overflow: hidden;
     border: 1px solid #f3f3f3;
     margin-bottom: 10px;
-   
+
 }
 .best-items .best-items-box img{
     width: 100%;
@@ -204,7 +204,7 @@ main h5{
     cursor: pointer;
     min-height: 265px;
 
-    
+
 }
 .best-items .best-items-box:hover{
     border: 1px solid  #183153;
@@ -275,7 +275,7 @@ main h5{
     overflow: hidden;
     margin: 10px;
     min-height: 350px;
-    
+
 }
 .offers .offers-box:hover img{
 transform: scale(1.1);
@@ -283,7 +283,7 @@ transform: scale(1.1);
 
 
 .offers .offers-box:hover div{
-    
+
     transform: scale(1.2);
 }
 .offers .offers-box img{
@@ -395,7 +395,7 @@ width: 100%;
 .touch form .btn:hover{
     background-color: #007bff;
     color: #FFF;
-    
+
 
 }
 .touch span {
@@ -408,12 +408,12 @@ width: 100%;
     height: 22px;
 }
 .touch span:hover {
-    
+
     border-color: #fff;
     color: #007bff;
 }
 @media (max-width: 768px){
-    
+
     .touch div{
         text-align: center;
         padding: 2px;
@@ -434,7 +434,7 @@ width: 100%;
     color: #888888;
     text-decoration: none;
     font-size: small;
-   
+
 }
 .footer a:hover{
 color: #007bff;
@@ -455,7 +455,7 @@ color: #007bff;
 .collection .section-box{
     overflow: hidden;
     position: relative;
-    
+
     margin-top:10px;
 }
 .collection .section-box .sub-box{
@@ -464,19 +464,19 @@ color: #007bff;
 }
 .collection .section-box .section-box-sub{
     position: relative;
-   
-    
+
+
 }
 
 .collection .section-box .section-box-sub:hover img{
     transform: scale(1.2);
-    
+
 }
 .collection .section-box .section-box-sub:hover .btn{
     background-color: #183153 ;
     color: #FFF;
     opacity: .9;
-    
+
 }
 .collection .section-box .top , .collection .section-box .bottom {
     overflow: hidden;
@@ -524,7 +524,7 @@ color: #007bff;
     background-color: #183153 ;
     color: #FFF;
     opacity: .9;
-    
+
 }
 
 .collection .section-box .sub-box img{
@@ -532,7 +532,7 @@ color: #007bff;
 }
 .collection .section-box .sub-box:hover img{
     transform: scale(1.2);
-    
+
 }
 .collection .full{
     height: 100% !important;
@@ -773,6 +773,11 @@ transition: transform .5s ease;
 }
 .login-page [data-class="login"].active{
     color:#007bff;
+}
+.card-header{
+    background: #183153;
+    color: #FFF;
+    text-align: center;
 }
 
 /* End login page */

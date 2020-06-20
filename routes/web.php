@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['verify'=>true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
-Route::get('/test', function () {
-    return 'hello' ;
-});
+Route::group(['prefix' => '/'], function () {
+    Route::get('index','front\indexController@index')->name('index');
+    Route::get('category','front\indexController@category')->name('category');
+    Route::get('collection','front\indexController@collection')->name('collection');
+    Route::get('product','front\indexController@product')->name('product');
+    });
