@@ -4,7 +4,7 @@
 <!-- sub nav liks -->
 <section class="links">
     <div class="container">
-    <a href="{{route('index')}}"> store</a><span>></span>
+    <a href="{{url('admin/login')}}"> store</a><span>></span>
       <a href="{{route('collection')}}"> collection</a><span>></span>
     <a href="{{route('category')}}"> category</a><span>></span>
       <a href=""> product</a><span></span>
