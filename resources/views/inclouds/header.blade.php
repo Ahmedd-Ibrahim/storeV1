@@ -60,12 +60,13 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="far fa-user"></i>
-
+            
                          <span>{{auth()->user()->name}}</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">Your profile </a>
                   <a class="dropdown-item" href="#">settings </a>
+
                   <a class="dropdown-item" href="{{ route('logout')}}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();"
@@ -73,6 +74,7 @@
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
+
               </div>
             </li>
             @endauth

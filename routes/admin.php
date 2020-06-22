@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Auth::routes(['verify'=>true]);
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,50 +23,57 @@ return "Hello World";
 });
 // Route::get('hello', 'FirstController@show');
 
+################## admin route###############
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('index',function(){
-        return view('admin.index');
-        });
-    Route::get('register',function(){
-        return view('admin.register');
-        });
-    Route::get('login',function(){
-        return view('admin.login');
-        });
-    Route::get('forget',function(){
-        return view('admin.forget');
-        });
-    Route::get('cards',function(){
-        return view('admin.cards');
-        });
-    Route::get('tables',function(){
-        return view('admin.tables');
-        });
-    Route::get('404',function(){
-        return view('admin.404');
-        });
-    Route::get('blank',function(){
-        return view('admin.blank');
-        });
+// , 'middleware' => ['isAdmin']
+// ->withoutMiddleware('isAdmin');
+// Route::group(['prefix' => 'admin' ], function () {
 
-    Route::get('charts',function(){
-        return view('admin.charts');
-        });
-    Route::get('utilities-animation',function(){
-        return view('admin.utilities-animation');
-        });
+//     Route::get('login',function(){
+//         return view('admin.login');
+//         });
 
-    Route::get('buttons',function(){
-        return view('admin.buttons');
-        });
-    Route::get('border',function(){
-        return view('admin.border');
-        });
-    Route::get('color',function(){
-        return view('admin.color');
-        });
-    Route::get('other',function(){
-        return view('admin.other');
-        });
-});
+//     Route::get('index',function(){
+//         return view('admin.index');
+//         })->middleware('isAdmin');
+
+//     Route::get('register',function(){
+//         return view('admin.register');
+//         });
+
+//     Route::get('forget',function(){
+//         return view('admin.forget');
+//         });
+//     Route::get('cards',function(){
+//         return view('admin.cards');
+//         });
+//     Route::get('tables',function(){
+//         return view('admin.tables');
+//         });
+//     Route::get('404',function(){
+//         return view('admin.404');
+//         });
+//     Route::get('blank',function(){
+//         return view('admin.blank');
+//         });
+
+//     Route::get('charts',function(){
+//         return view('admin.charts');
+//         });
+//     Route::get('utilities-animation',function(){
+//         return view('admin.utilities-animation');
+//         });
+
+//     Route::get('buttons',function(){
+//         return view('admin.buttons');
+//         });
+//     Route::get('border',function(){
+//         return view('admin.border');
+//         });
+//     Route::get('color',function(){
+//         return view('admin.color');
+//         });
+//     Route::get('other',function(){
+//         return view('admin.other');
+//         });
+// });

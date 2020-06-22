@@ -1,8 +1,8 @@
 
 @extends('admin.inclouds.masterAdmin')
-@extends('admin.inclouds.slider')
+
 @section('content')
-@section('title',' -bottons')
+@section('title',' -Categories')
 
 
       <!-- Content Wrapper -->
@@ -164,7 +164,7 @@
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::check() ? Auth::user()->name : 'username'}}</span>
                   <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                 </a>
                 <!-- Dropdown - User Information -->
@@ -193,189 +193,112 @@
 
           </nav>
           <!-- End of Topbar -->
+          {{-- content --}}
+ <!-- Begin Page Content -->
+ <div class="container-fluid">
 
-          <!-- Begin Page Content -->
-          <div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Categories</h1>
 
-            <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Buttons</h1>
+    <div class="row">
 
-            <div class="row">
+      <div class="col-lg-6">
 
-              <div class="col-lg-6">
-
-                <!-- Circle Buttons -->
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Circle Buttons</h6>
+        <!-- Circle Buttons -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Add Categories</h6>
+          </div>
+          <div class="card-body">
+              @if(Session::has('added'))
+          <p class="btn btn-success">{{Session::get('added')}}</p>
+              @endif
+            <form method="POST" action="{{ url('admin/categories/save') }}">
+                @csrf
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputEmail4">Name</label>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name">
                   </div>
-                  <div class="card-body">
-                    <p>Use Font Awesome Icons (included with this theme package) along with the circle buttons as shown in the examples below!</p>
-                    <!-- Circle Buttons (Default) -->
-                    <div class="mb-2">
-                      <code>.btn-circle</code>
-                    </div>
-                    <a href="#" class="btn btn-primary btn-circle">
-                      <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="btn btn-success btn-circle">
-                      <i class="fas fa-check"></i>
-                    </a>
-                    <a href="#" class="btn btn-info btn-circle">
-                      <i class="fas fa-info-circle"></i>
-                    </a>
-                    <a href="#" class="btn btn-warning btn-circle">
-                      <i class="fas fa-exclamation-triangle"></i>
-                    </a>
-                    <a href="#" class="btn btn-danger btn-circle">
-                      <i class="fas fa-trash"></i>
-                    </a>
-                    <!-- Circle Buttons (Small) -->
-                    <div class="mt-4 mb-2">
-                      <code>.btn-circle .btn-sm</code>
-                    </div>
-                    <a href="#" class="btn btn-primary btn-circle btn-sm">
-                      <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="btn btn-success btn-circle btn-sm">
-                      <i class="fas fa-check"></i>
-                    </a>
-                    <a href="#" class="btn btn-info btn-circle btn-sm">
-                      <i class="fas fa-info-circle"></i>
-                    </a>
-                    <a href="#" class="btn btn-warning btn-circle btn-sm">
-                      <i class="fas fa-exclamation-triangle"></i>
-                    </a>
-                    <a href="#" class="btn btn-danger btn-circle btn-sm">
-                      <i class="fas fa-trash"></i>
-                    </a>
-                    <!-- Circle Buttons (Large) -->
-                    <div class="mt-4 mb-2">
-                      <code>.btn-circle .btn-lg</code>
-                    </div>
-                    <a href="#" class="btn btn-primary btn-circle btn-lg">
-                      <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="btn btn-success btn-circle btn-lg">
-                      <i class="fas fa-check"></i>
-                    </a>
-                    <a href="#" class="btn btn-info btn-circle btn-lg">
-                      <i class="fas fa-info-circle"></i>
-                    </a>
-                    <a href="#" class="btn btn-warning btn-circle btn-lg">
-                      <i class="fas fa-exclamation-triangle"></i>
-                    </a>
-                    <a href="#" class="btn btn-danger btn-circle btn-lg">
-                      <i class="fas fa-trash"></i>
-                    </a>
+                  @error('name')
+                  <div class="clearFix"></div>
+                  <div class="alert alert-danger" role="alert">
+                    {{$message}}
+                  </div>
+                  @enderror
+                  <div class="form-group col-md-12">
+                    <label for="inputPassword4">Discription</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="discription" name="discription">
                   </div>
                 </div>
-
-                <!-- Brand Buttons -->
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Brand Buttons</h6>
-                  </div>
-                  <div class="card-body">
-                    <p>Google and Facebook buttons are available featuring each company's respective brand color. They are used on the user login and registration pages.</p>
-                    <p>You can create more custom buttons by adding a new color variable in the <code>_variables.scss</code> file and then using the Bootstrap button variant mixin to create a new style, as demonstrated in the <code>_buttons.scss</code> file.</p>
-                    <a href="#" class="btn btn-google btn-block"><i class="fab fa-google fa-fw"></i> .btn-google</a>
-                    <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f fa-fw"></i> .btn-facebook</a>
-
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Active ?
+                    </label>
                   </div>
                 </div>
+                <button type="submit" class="btn btn-primary">Save!</button>
+              </form>
+          </div>
+        </div>
 
-              </div>
+        <!-- Brand Buttons -->
 
-              <div class="col-lg-6">
-
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Split Buttons with Icon</h6>
-                  </div>
-                  <div class="card-body">
-                    <p>Works with any button colors, just use the <code>.btn-icon-split</code> class and the markup in the examples below. The examples below also use the <code>.text-white-50</code> helper class on the icons for additional styling, but it is not required.</p>
-                    <a href="#" class="btn btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
-                      </span>
-                      <span class="text">Split Button Primary</span>
-                    </a>
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-success btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text">Split Button Success</span>
-                    </a>
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-info btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-info-circle"></i>
-                      </span>
-                      <span class="text">Split Button Info</span>
-                    </a>
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-warning btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-exclamation-triangle"></i>
-                      </span>
-                      <span class="text">Split Button Warning</span>
-                    </a>
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-danger btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Split Button Danger</span>
-                    </a>
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-secondary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-arrow-right"></i>
-                      </span>
-                      <span class="text">Split Button Secondary</span>
-                    </a>
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-light btn-icon-split">
-                      <span class="icon text-gray-600">
-                        <i class="fas fa-arrow-right"></i>
-                      </span>
-                      <span class="text">Split Button Light</span>
-                    </a>
-                    <div class="mb-4"></div>
-                    <p>Also works with small and large button classes!</p>
-                    <a href="#" class="btn btn-primary btn-icon-split btn-sm">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
-                      </span>
-                      <span class="text">Split Button Small</span>
-                    </a>
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-primary btn-icon-split btn-lg">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
-                      </span>
-                      <span class="text">Split Button Large</span>
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-
+      </div>
+      <div class="col-lg-6">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Your Category</h6>
+          </div>
+          <div class="card-body">
+              @error('delete-error')
+              <p class="btn btn-warning"> {{$message}}</p>
+              @enderror
+              @if(Session::has('success'))
+              <p class="btn btn-success"> {{Session::get('success')}}</p>
+              @endif
+            @foreach ($category as $categories)
+            <div class="my-2"></div>
+            <div class="mycategory">
+                <a href="#" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    <span class="text">{{$categories['name']}}</span>
+                  </a>
             </div>
 
-          </div>
-          <!-- /.container-fluid -->
 
+            <div class="mybutton">
+                <a href="{{url('admin/categories/delete/'.$categories['id'])}}" class="btn btn-danger " type="button">Delete <i class="fas fa-trash-alt"></i></a>
+                <a href="{{url('admin/categories/categoryEdit/'.$categories['id'])}}" class="btn btn-info">Edit <i class="fas fa-edit"></i></a>
+            </div>
+
+            <div class="my-2"></div>
+            @endforeach
+          </div>
         </div>
-        <!-- End of Main Content -->
+
+      </div>
+
+    </div>
+
+  </div>
+  <!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+
+          {{-- Endcontent --}}
 
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2020</span>
+              <span>Copyright &copy; Aheed Ibrahem  2020</span>
             </div>
           </div>
         </footer>
