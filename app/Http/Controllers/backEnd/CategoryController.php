@@ -10,18 +10,18 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
-    //
+    // show categories
     public function categories(){
         $category = ModelCategory::get();
         return view('admin.categories',['category'=>$category]);
     }
 
+    // insert categories
     public function save(Request $request){
 // valdete data before insert
 // | string |unique:category,name'
 $valedator = Validator::make($request->all(),[
     'name' => 'required | min:3 |unique:category,name',
-
 ]);
 if($valedator -> fails()){
 
@@ -70,6 +70,7 @@ if(!$myCat){
     return redirect()->back();
 }
 $myCat->update($request->all());
+
 return redirect()->back()->with(['updated'=>'Your Category have been Updated']);
 }
 }

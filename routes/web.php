@@ -68,10 +68,13 @@ Route::group(['prefix' => 'admin' ], function () {
     Route::get('charts',function(){
         return view('admin.charts');
         });
-    Route::get('utilities-animation',function(){
+    Route::get('animation',function(){
         return view('admin.utilities-animation');
         });
-
+    Route::get('border',function(){
+            return view('admin.border');
+        });
+// ############# categories route
     Route::get('categories','backEnd\CategoryController@categories'); //show category
 
     Route::any('categories/save','backEnd\CategoryController@save'); //category save
@@ -81,16 +84,27 @@ Route::group(['prefix' => 'admin' ], function () {
     Route::any('categories/categoryEdit/{categories_id}','backEnd\CategoryController@edit'); //category edit
 
     Route::any('categories/update/{categories_id}','backEnd\CategoryController@update')->name('admin.categories.update'); //category update
+// ############# End categories route
 
-    Route::get('border',function(){
-        return view('admin.border');
-        });
-    Route::get('color',function(){
-        return view('admin.color');
-        });
-    Route::get('other',function(){
+
+        /*  members route  */
+    Route::get('members', 'backEnd\membersController@index'); // show member page
+    Route::get('members/edit/{member_id}', 'backEnd\membersController@edit')->name('admin.members.edit'); // edit member
+    Route::post('members/update/{member_id}', 'backEnd\membersController@update')->name('admin.members.update'); // update member
+    Route::any('members/delete/{member_id}', 'backEnd\membersController@delete')->name('admin.members.delete'); // Delete member
+    Route::any('other',function(){
         return view('admin.other');
         });
+
+        /* End   members route  */
+
+        ############## moderators route #########
+        Route::get('moderators', 'backEnd\moderatorsController@index');
+        Route::get('moderators/edit/{moderator_id}', 'backEnd\moderatorsController@edit')->name('admin.moderators.edit'); // edit modertors
+       Route::post('moderators/update/{moderator_id}', 'backEnd\moderatorsController@update')->name('admin.moderators.update'); // update modertors
+       Route::any('moderators/delete/{moderator_id}', 'backEnd\moderatorsController@delete')->name('admin.moderators.delete'); // Delete modertors
+        ############## End moderators route #########
+
 });
 ########################### End  admin Routes ##########################
 Route::get("admin/test","backEnd\CategoryController@index");

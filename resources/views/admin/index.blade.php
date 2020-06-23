@@ -1,9 +1,6 @@
 @extends('admin.inclouds.masterAdmin')
 
 @section('content')
-
-
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -214,7 +211,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Admins( ROOT )</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{count($admins)}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -250,11 +247,11 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Members</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{count($user)}}</div>
                         </div>
                         <div class="col">
                           <div class=" mr-2 font-size-small">
-                            <p>Pending Members <a href="#"> (0)</a></p>
+                            <p>unverified Members <a href="#"> ( {{count($userNotVerified)}}   )</a></p>
                           </div>
                         </div>
                       </div>

@@ -40,7 +40,7 @@
             <p>ADDRESS: 7895 Piermont Dr NE Albuquerque,NM 198866, United States of America</p>
             <p><span>PHONE:</span> +201010420399</p>
             <p><span>HOURS:</span> all week from 9 am to 9 pm</p>
-            <p><span>E-MAIL:</span> info@mydomain.com</p>
+            <p><span>E-MAIL:</span> 0ahmedibrahem@gmail.com</p>
           </div>
         </div>
       </div>

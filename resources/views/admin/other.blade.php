@@ -1,5 +1,5 @@
 @extends('admin.inclouds.masterAdmin')
-@extends('admin.inclouds.slider')
+
 @section('content')
 @section('title',' -other')
 

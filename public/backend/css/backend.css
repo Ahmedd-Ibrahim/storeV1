@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden;
+}
 /* ########## start category page ######### */
 .card-body .mycategory, .card-body .mybutton{
     display:inline-block;
@@ -6,3 +9,20 @@
     float: right;
 }
 /* ########## End category page ######### */
+
+/* ########## Start MEMEBER PAGE  ######### */
+.table .member_btn{
+    width: 100%;
+}
+.member_row{
+    width: 100%;
+}
+.member_row .member_card{
+    width: 75%;
+    margin: auto;
+}
+/* delete button */
+/* End delete   button */
+/* ########## END MEMBER PAGE ######### */
+
+
