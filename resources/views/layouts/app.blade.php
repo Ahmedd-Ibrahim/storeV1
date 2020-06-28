@@ -1,3 +1,9 @@
+<?php
+use App\Ajax as ajax;
+
+$users = ajax::get();
+
+?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -6,11 +12,11 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <link rel="stylesheet" href="{{URL::asset('theme/defualt/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{URL::asset('theme/defualt/css/all.min.css')}}">
   <link rel="stylesheet" href="{{URL::asset('theme/defualt/css/normalize.css')}}">
 <link rel="stylesheet" href="{{URL::asset('theme/defualt/css/style.css')}}">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -79,8 +85,11 @@
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+
                             @csrf
                         </form>
+
+
                     </div>
                 </li>
             @endguest
@@ -92,16 +101,40 @@
       </nav>
 
 
-
-
-
-
-
         <main class="py-4">
             @yield('content')
         </main>
 
+@yield('form')
 
+@yield('users')
+
+<script>
+    $(document).on('click','#save_form',function(e){
+            e.preventDefault();
+
+            $.ajax({
+            type: "POST",
+            url : "{{route('save')}}",
+            data: {
+               '_token': '{{csrf_token()}}',
+               'name':$("input[name='name']").val(),
+               'discription':$("input[name='discription']").val(),
+            },
+            success: function(response) {
+                // sccess case
+                $('#msg').css('display','block');
+                // console.log(response.msg);
+            },
+            error: function(response) {
+                // failed case
+                console.log(response.msg);
+            }
+        });
+
+        });
+
+    </script>
         @extends('inclouds.footer')
 </body>
 </html>

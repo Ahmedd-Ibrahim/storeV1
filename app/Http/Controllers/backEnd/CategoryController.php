@@ -20,6 +20,7 @@ class CategoryController extends Controller
     public function save(Request $request){
 // valdete data before insert
 // | string |unique:category,name'
+
 $valedator = Validator::make($request->all(),[
     'name' => 'required | min:3 |unique:category,name',
 ]);
@@ -29,6 +30,7 @@ if($valedator -> fails()){
     return redirect()->back()->withErrors($valedator)->withInputs($request->all());
 }
 // insert data and redirect
+
 ModelCategory::create([
     'name'           => $request->name,
     'discription'  => $request->discription,

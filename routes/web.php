@@ -14,16 +14,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Route::get('test',function (){
-// return "Hello World";
-// });
-// Route::get('index', function () {
-//     return view('index');
-// });
 
 Auth::routes(['verify'=>true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
@@ -34,16 +28,12 @@ Route::group(['prefix' => '/'], function () {
     Route::get('product','front\indexController@product')->name('product');
      });
 
+     ########################### admin Route ##########################
+     Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin' ], function () {
 
+    Route::get('login','backEnd\auth\loginController@index')->withoutMiddleware('isAdmin');
 
-########################### admin Route ##########################
-Route::group(['prefix' => 'admin' ], function () {
-
-    Route::get('login',function(){
-        return view('admin.login');
-        });
-
-    Route::get('index','backEnd\indexController@index')->middleware('isAdmin');
+    Route::get('index','backEnd\indexController@index');
 
     Route::get('register',function(){
         return view('admin.register');
@@ -104,7 +94,28 @@ Route::group(['prefix' => 'admin' ], function () {
        Route::post('moderators/update/{moderator_id}', 'backEnd\moderatorsController@update')->name('admin.moderators.update'); // update modertors
        Route::any('moderators/delete/{moderator_id}', 'backEnd\moderatorsController@delete')->name('admin.moderators.delete'); // Delete modertors
         ############## End moderators route #########
+        ############## begin Items route #########
+        Route::get('items','backEnd\items\itemsController@index');
+
+        Route::get('items/add','backEnd\items\itemsController@add');
+
+        Route::get('items/product','backEnd\items\itemsController@product')->name('admin/items/product');
+
+        Route::post('items/save','backEnd\items\itemsController@save');
+
+        Route::get('items/{spcial}/{id}','backEnd\items\itemsController@spcial');
+        ############## End Items route ###########
 
 });
+
 ########################### End  admin Routes ##########################
-Route::get("admin/test","backEnd\CategoryController@index");
+
+// Route::get("admin/test","backEnd\CategoryController@index");
+
+
+
+Route::get("relation",'ajaxController@index');
+Route::post("save",'ajaxController@save')->name('save');
+
+
+

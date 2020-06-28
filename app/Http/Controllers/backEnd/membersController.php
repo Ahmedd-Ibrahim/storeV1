@@ -38,7 +38,7 @@ class membersController extends Controller
     public function update(Request $request,$member_id){
         $user = User::find($member_id);
         $request->validate([
-            'name' => 'required |min:9 ',
+            'name' => 'required |min:4 ',
             'email' => 'sometimes|required|email|unique:users,email,'. $member_id,
             'phone' => 'required | unique:users,phone,'.$member_id ,
             'password'=>'reqired',

@@ -10,6 +10,7 @@
     </div>
   </section>
   <!-- End nav liks -->
+
   <!-- start product -->
   <section class="product">
       <div class="container">
@@ -106,6 +107,7 @@
 
              </div>
           </div>
+          
          <div class="col-md-4">
              <div class="product-box">
                <h3 class="product-name text-center">shoes sparo</h3>
@@ -138,6 +140,6 @@
       </div>
       </div>
   </section>
-
   <!-- end product -->
+
 @endsection

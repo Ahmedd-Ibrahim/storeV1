@@ -18,17 +18,18 @@ class isAdmin
     public function handle($request, Closure $next)
     {
         // Auth::user()->name == 'zezo'
-if(Auth::check()){
-    return $next($request);
+if (Auth::check()){
+    $user_group = Auth::user()->user_group;
 
+    if($user_group == 1){  // check admin group
+        return $next($request);
 
-}else{
-    return  redirect()->route('index');
-
-
+    }
 
 }
+  else{
+    return  redirect()->route('index');
 
-
+}
     }
 }

@@ -11,6 +11,7 @@
     </div>
   </section>
   <!-- End nav liks -->
+  
 <!-- start categories section  -->
 <section class="categories">
 
