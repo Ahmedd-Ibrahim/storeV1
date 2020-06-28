@@ -23,74 +23,31 @@
   <section class="product">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 d-none">
 
-                <div class="product-box">
-
-                     <div class="Special-products">
-                         <h3 class="text-center">Special Products  </h3>
-                         <div class="special-box">
-                             <div class="spcail-imge">
-                                 <a href="#">
-                                 <img src="../imgs/A1_2.jpg" alt="">
-                               </a>
-                             </div>
-                             <div class="spcail-name">
-                               <p><a href="#">Special Products name </a></p>
-                               <p>$350E </p>
-                             </div>
-                         </div>
-                         <div class="special-box">
-                             <div class="spcail-imge">
-                                 <a href="#">
-                                 <img src="../imgs/thumb.jpg" alt="">
-                               </a>
-                             </div>
-                             <div class="spcail-name">
-                               <p><a href="#">Special Products name </a></p>
-                               <p>$350E </p>
-                             </div>
-                         </div>
-                         <div class="special-box">
-                             <div class="spcail-imge">
-                                 <a href="#">
-                                 <img src="../imgs/red-high-neck-maxi-dress.jpg" alt="">
-                               </a>
-                             </div>
-                             <div class="spcail-name">
-                               <p><a href="#">Special Products name </a></p>
-                               <p>$350E </p>
-                             </div>
-                         </div>
-
-                     </div>
-
-                   </div>
-        </div>
         <div class="col-md-4">
            <div class="product-box">
              <div class="big-img">
                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                  <ol class="carousel-indicators">
                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
-                   <img src="{{asset('imgs/thumb.jpg')}}" class="d-block w-100" alt="...">
+                   <img src="../../../{{$item->photo}}" class="d-block w-100" alt="...">
                    </li>
                    <li data-target="#carouselExampleIndicators" data-slide-to="1">
-                     <img src="{{asset('imgs/thumb.jpg')}}" class="d-block w-100" alt="...">
+                     <img src="../../../{{$item->photo}}" class="d-block w-100" alt="...">
                    </li>
                    <li data-target="#carouselExampleIndicators" data-slide-to="2">
-                     <img src="{{asset('imgs/thumb.jpg')}}" class="d-block w-100" alt="...">
+                     <img src="../../../{{$item->photo}}" class="d-block w-100" alt="...">
                    </li>
                  </ol>
                  <div class="carousel-inner">
                    <div class="carousel-item active">
-                     <img src="{{asset('imgs/thumb.jpg')}}" class="d-block w-100" alt="...">
+                     <img src="../../../{{$item->photo}}" class="d-block w-100" alt="...">
                    </div>
                    <div class="carousel-item">
-                     <img src="{{asset('imgs/thumb.jpg')}}" class="d-block w-100" alt="...">
+                     <img src="../../../{{$item->photo}}" class="d-block w-100" alt="...">
                    </div>
                    <div class="carousel-item">
-                     <img src="{{asset('imgs/thumb.jpg')}}" class="d-block w-100" alt="...">
+                     <img src="../../../{{$item->photo}}" class="d-block w-100" alt="...">
                    </div>
                  </div>
                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -110,15 +67,15 @@
 
        <div class="col-md-4">
            <div class="product-box">
-             <h3 class="product-name text-center">shoes sparo</h3>
+             <h3 class="product-name text-center">{{$item->name}}</h3>
 
-             <p class="discription text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+             <p class="discription text-center">{{$item->discription}}
              </p>
              <div class="info">
-               <p>price <span>$50.00</span></p>
-             <p>date <span>2020</span></p>
-             <p>made in  <span>EGYPT</span></p>
-             <p>CATEGORY  <span>SHOES</span></p>
+             <p>price <span>$ {{$item->price}}</span></p>
+             <p>date <span>{{$item->created_at}}</span></p>
+
+             <p>CATEGORY  <span>{{$category->name}}</span></p>
 
            </div>
              <form action="#" class="form-inline">
@@ -132,8 +89,8 @@
                <br>
                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Quantity</label>
                <input class="custom-select my-1 mr-sm-2 Quantity" type="number" name="" id="inlineFormCustomSelectPref">
-               <button type="button" class="btn btn-primary"><i class="fas fa-cart-plus"></i> | add to cart</button>
-               <button type="button" class="btn btn-primary"><i class="fas fa-credit-card"></i> | BUY NOW</button>
+               <button type="button" class="btn btn-primary"> Edit!</button>
+            <button type="button" class="btn btn-primary">Delete {{$item->name}}?</button>
              </form>
            </div>
        </div>

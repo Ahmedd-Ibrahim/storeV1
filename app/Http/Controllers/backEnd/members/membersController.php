@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backEnd;
+namespace App\Http\Controllers\backEnd\members;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class membersController extends Controller
         $users = User::get()->where('user_group',0);
 
 
-        return view('admin.members',['users'=>$users]);
+        return view('admin.members.members',['users'=>$users]);
     }
 //#################### edit Member ##################
      public function edit($member_id){
@@ -30,7 +30,7 @@ class membersController extends Controller
             return redirect('admin/members');
         }
 
-        return view('admin.editMember',['findUser' =>$findUser]);
+        return view('admin.members.editMember',['findUser' =>$findUser]);
     }
 
 //#################### update Member ##################

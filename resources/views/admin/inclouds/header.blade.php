@@ -77,9 +77,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Custom Components:</h6>
               <a class="collapse-item" href="{{url('admin/categories')}}"> <b>categories settings</b></a>
-              <a class="collapse-item" href="{{url('admin/cards')}}">Cards</a>
               @foreach ($category as $categories)
-              <a class="collapse-item" href="{{url('admin/cards')}}">{{$categories['name']}}</a>
+            <a class="collapse-item" href="{{url('admin/items/'. $categories->name.'/'. $categories->id )}}">{{$categories->name}}</a>
               @endforeach
             </div>
           </div>
@@ -116,6 +115,10 @@
               <a class="collapse-item" href="{{url('admin/items')}}"> items settings </a>
               <a class="collapse-item" href="{{url('admin/items/add')}}">Add New Item </a>
               <a class="collapse-item" href="{{url('admin/items')}}">Show All items</a>
+              @foreach ($category as $categories)
+
+            <a class="collapse-item" href="{{url('admin/items/'. $categories->name.'/'. $categories->id )}}">{{$categories->name}}</a>
+              @endforeach
 
 
             </div>

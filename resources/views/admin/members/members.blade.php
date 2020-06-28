@@ -2,10 +2,6 @@
 
 @section('content')
 @section('title','MEMBERS')
-
-
-
-
           <!-- Begin Page Content -->
           <div class="container-fluid">
 

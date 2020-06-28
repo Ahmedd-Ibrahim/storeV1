@@ -23,13 +23,16 @@
               @if(Session::has('added'))
           <p class="btn btn-success">{{Session::get('added')}}</p>
               @endif
+              @if(Session::has('error'))
+          <p class="btn btn-info">{{Session::get('error')}}</p>
+              @endif
             <form method="POST" action="{{ url('admin/items/save') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-row">
 
                   <div class="form-group col-md-12">
                     <label for="inputEmail4">Name</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" name="name" required>
                   </div>
                   @error('name')
                   <div class="clearFix"></div>
@@ -45,7 +48,7 @@
 
                   <div class="form-group col-md-12">
                     <label for="inputEmail4">$ price</label>
-                    <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="price" name="price">
+                    <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="price" name="price" required>
                   </div>
                   @error('price')
                   <div class="clearFix"></div>
@@ -56,7 +59,7 @@
 
                   <div class="form-group col-md-12">
                     <label for="inputEmail4">photos</label>
-                    <input type="file" class="form-control @error('price') is-invalid @enderror" id="photos" placeholder="photos" name="photos">
+                    <input type="file" class="form-control @error('price') is-invalid @enderror" id="photos" placeholder="photos" name="photos" required>
                   </div>
                   @error('photos')
                   <div class="clearFix"></div>
@@ -123,23 +126,6 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="{{url('admin/login')}}">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
 @endsection

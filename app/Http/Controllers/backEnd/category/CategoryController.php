@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backEnd;
+namespace App\Http\Controllers\backEnd\category;
 
 use App\Http\Controllers\Controller;
 use App\model\Category as ModelCategory;
@@ -13,7 +13,7 @@ class CategoryController extends Controller
     // show categories
     public function categories(){
         $category = ModelCategory::get();
-        return view('admin.categories',['category'=>$category]);
+        return view('admin.categories.categories',['category'=>$category]);
     }
 
     // insert categories
@@ -43,7 +43,6 @@ return redirect('admin/categories')->with(['added'=> 'success added Your Categor
 public function delete($categories_id){
 
     $del = ModelCategory::find($categories_id);
-
     if(!$del){
         return redirect('admin/categories')->withErrors(['delete-error'=>'You trying to delete uknown categories']);
     }
@@ -60,7 +59,7 @@ public function edit($categories_id)
     if(!$edit){
         return redirect('admin/categories');
     }
-  return view('admin.categoryEdit',['edit'=>$edit]);
+  return view('admin.categories.categoryEdit',['edit'=>$edit]);
 }
 ############ update Categories ########
 

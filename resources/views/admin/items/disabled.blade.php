@@ -9,14 +9,10 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <div class="controller-buttom">
-        <button class="btn btn-primary active">All items</button>
-        <a href="{{url('admin/disabledItem')}}"> <button class="btn btn-primary ">Disabled items</button></a>
+        <a href="{{url('admin/items')}}"><button class="btn btn-primary ">All items</button></a>
+        <button class="btn btn-primary active">Disabled items</button>
         <button class="btn btn-primary "><a href="{{url('admin/items/add')}}" >Add New items</a></button>
-        @if ($category)
-        @foreach ($category as $categories)
-        <button class="btn btn-primary" ><a href="{{url('admin/items/'. $categories->name.'/'. $categories->id )}}">{{$categories->name}}</a></button>
-        @endforeach
-        @endif
+
         </div>
     </div>
     <div class="card-body">
@@ -49,7 +45,7 @@
             <i class="fas fa-star"></i>
           </p>
 
-            <a href="{{url('admin/disable/'.$item->id)}}"> <button type="button" class="btn btn-primary"><i class="fas fa-bell-slash"></i> disable?</button></a>
+            <a href="{{url('admin/enable/'.$item->id)}}"> <button type="button" class="btn btn-primary"><i class="fas fa-bell-slash"></i>Enable?</button></a>
            <a href="{{url('admin/delete/'.$item->id)}}"> <button type="button" class="btn btn-primary"><i class="fas fa-trash-alt"></i> Delete?</button></a>
         </div>
       </div>

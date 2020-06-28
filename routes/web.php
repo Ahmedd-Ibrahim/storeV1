@@ -65,23 +65,23 @@ Route::group(['prefix' => '/'], function () {
             return view('admin.border');
         });
 // ############# categories route
-    Route::get('categories','backEnd\CategoryController@categories'); //show category
+    Route::get('categories','backEnd\Category\CategoryController@categories'); //show category
 
-    Route::any('categories/save','backEnd\CategoryController@save'); //category save
+    Route::any('categories/save','backEnd\Category\CategoryController@save'); //category save
 
-    Route::any('categories/delete/{categories_id}','backEnd\CategoryController@delete'); //category delete
+    Route::any('categories/delete/{categories_id}','backEnd\Category\CategoryController@delete'); //category delete
 
-    Route::any('categories/categoryEdit/{categories_id}','backEnd\CategoryController@edit'); //category edit
+    Route::any('categories/categoryEdit/{categories_id}','backEnd\Category\CategoryController@edit'); //category edit
 
-    Route::any('categories/update/{categories_id}','backEnd\CategoryController@update')->name('admin.categories.update'); //category update
+    Route::any('categories/update/{categories_id}','backEnd\Category\CategoryController@update')->name('admin.categories.update'); //category update
 // ############# End categories route
 
 
         /*  members route  */
-    Route::get('members', 'backEnd\membersController@index'); // show member page
-    Route::get('members/edit/{member_id}', 'backEnd\membersController@edit')->name('admin.members.edit'); // edit member
-    Route::post('members/update/{member_id}', 'backEnd\membersController@update')->name('admin.members.update'); // update member
-    Route::any('members/delete/{member_id}', 'backEnd\membersController@delete')->name('admin.members.delete'); // Delete member
+    Route::get('members', 'backEnd\members\membersController@index'); // show member page
+    Route::get('members/edit/{member_id}', 'backEnd\members\membersController@edit')->name('admin.members.edit'); // edit member
+    Route::post('members/update/{member_id}', 'backEnd\members\membersController@update')->name('admin.members.update'); // update member
+    Route::any('members/delete/{member_id}', 'backEnd\members\membersController@delete')->name('admin.members.delete'); // Delete member
     Route::any('other',function(){
         return view('admin.other');
         });
@@ -89,21 +89,26 @@ Route::group(['prefix' => '/'], function () {
         /* End   members route  */
 
         ############## moderators route #########
-        Route::get('moderators', 'backEnd\moderatorsController@index');
-        Route::get('moderators/edit/{moderator_id}', 'backEnd\moderatorsController@edit')->name('admin.moderators.edit'); // edit modertors
-       Route::post('moderators/update/{moderator_id}', 'backEnd\moderatorsController@update')->name('admin.moderators.update'); // update modertors
-       Route::any('moderators/delete/{moderator_id}', 'backEnd\moderatorsController@delete')->name('admin.moderators.delete'); // Delete modertors
+        Route::get('moderators', 'backEnd\moderator\moderatorsController@index');
+        Route::get('moderators/edit/{moderator_id}', 'backEnd\moderator\moderatorsController@edit')->name('admin.moderators.edit'); // edit modertors
+       Route::post('moderators/update/{moderator_id}', 'backEnd\moderator\moderatorsController@update')->name('admin.moderators.update'); // update modertors
+       Route::any('moderators/delete/{moderator_id}', 'backEnd\moderator\moderatorsController@delete')->name('admin.moderators.delete'); // Delete modertors
         ############## End moderators route #########
         ############## begin Items route #########
         Route::get('items','backEnd\items\itemsController@index');
 
         Route::get('items/add','backEnd\items\itemsController@add');
 
-        Route::get('items/product','backEnd\items\itemsController@product')->name('admin/items/product');
+        Route::get('items/product/{id}','backEnd\items\itemsController@product');
 
         Route::post('items/save','backEnd\items\itemsController@save');
 
         Route::get('items/{spcial}/{id}','backEnd\items\itemsController@spcial');
+// diable & Enable & DELETE
+        Route::any('disabledItem','backEnd\items\itemsController@disabledItem')->name('item.disabled'); // disabled item
+        Route::any('disable/{id}','backEnd\items\itemsController@disable')->name('item.disable'); // disable Items
+        Route::any('enable/{id}','backEnd\items\itemsController@enable')->name('item.disable'); // Enable Items
+        Route::any('delete/{id}','backEnd\items\itemsController@delete');// Delete Item
         ############## End Items route ###########
 
 });
@@ -115,7 +120,7 @@ Route::group(['prefix' => '/'], function () {
 
 
 Route::get("relation",'ajaxController@index');
-Route::post("save",'ajaxController@save')->name('save');
+
 
 
 

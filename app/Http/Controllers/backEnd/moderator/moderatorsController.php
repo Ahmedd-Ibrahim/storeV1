@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backEnd;
+namespace App\Http\Controllers\backEnd\moderator;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,12 +14,11 @@ class moderatorsController extends Controller
 
         $moderators  = User::get()->where('user_group',2);
         $admins    = User::get()->where('user_group',1);
-        return view('admin.moderators',['moderators'=> $moderators,'admins'=> $admins]);
+        return view('admin.members.moderators',['moderators'=> $moderators,'admins'=> $admins]);
     }
 
 
 //#################### edit moderators ##################
-
 
 public function edit($moderator_id){
 
@@ -30,7 +29,7 @@ public function edit($moderator_id){
         return redirect('admin/moderators');
     }
 
-    return view('admin.editModerators',['findMode' =>$findMode]);
+    return view('admin.members.editModerators',['findMode' =>$findMode]);
 }
 
 //#################### update moderators ##################

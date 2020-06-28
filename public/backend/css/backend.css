@@ -97,7 +97,7 @@ body{
 }
 .card-body .items .best-items-box .detils .btn-primary{
     background-color: #183153;
-    width: 100%;
+    width: 49%;
     height: 42px;
 }
 .card-body .items.best-items-box .detils .btn-primary:hover{

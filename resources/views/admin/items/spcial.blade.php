@@ -1,8 +1,22 @@
 @extends('admin.inclouds.masterAdmin')
 
 @section('content')
-@section('title',' -items')
+{{-- if no Categories will chose defualt title --}}
+@if(!$category)
+@section('title','items')
+@endif
 
+{{-- title of the page from categories name --}}
+@if ($category)
+@foreach ($category as $categories)
+@if(str_contains($url,$categories->name))
+@section('title')
+{{$categories->name}}
+@endSection
+@endif
+@endforeach
+@endif
+{{--End  title of the page from categories name --}}
 
       <!-- Begin Page Content -->
       <div class="container-fluid">
@@ -12,9 +26,7 @@
         <button class="btn btn-primary"><a href="{{url('admin/items')}}">All items</a></button>
         <button class="btn btn-primary ">Disabled items</button>
         <button class="btn btn-primary "><a href="{{url('admin/items/add')}}" >Add New items</a></button>
-       
         @if ($category)
-
         @foreach ($category as $categories)
         <button class="btn btn-primary {{str_contains($url,$categories->name)? 'active' : ''}}" ><a href="{{url('admin/items/'. $categories->name.'/'. $categories->id )}}">{{$categories->name}}</a></button>
         @endforeach
@@ -33,7 +45,7 @@
 
 <div class="col-md-3 col-sm-6">
     <div class="best-items-box">
-        <a href="{{route('admin/items/product')}}">
+        <a href="{{url('admin/items/product/'.$item->id)}}">
       <img src="../../../{{$item->photo}}">
         </a>
       <div class="like">
@@ -50,20 +62,20 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
           </p>
-          <button type="button" class="btn btn-primary"><i class="fas fa-cart-plus"></i> disable ?</button>
+
+          <a href="{{url('admin/disable/'.$item->id)}}"> <button type="button" class="btn btn-primary"><i class="fas fa-bell-slash"></i> disable?</button></a>
+          <a href="{{url('admin/delete/'.$item->id)}}"> <button type="button" class="btn btn-primary"><i class="fas fa-trash-alt"></i> Delete?</button></a>
+
         </div>
       </div>
     </div>
   </div>
-
 @endforeach
-
     </div>
     </div>
 </section>
 
 <!-- End items section  -->
-
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
@@ -73,11 +85,9 @@
             </div>
           </footer>
           <!-- End of Footer -->
-
-
-
       <!-- Scroll to Top Button-->
       <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
       </a>
 @endSection
+

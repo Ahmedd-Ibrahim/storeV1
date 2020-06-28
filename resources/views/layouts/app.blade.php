@@ -1,9 +1,3 @@
-<?php
-use App\Ajax as ajax;
-
-$users = ajax::get();
-
-?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -109,32 +103,6 @@ $users = ajax::get();
 
 @yield('users')
 
-<script>
-    $(document).on('click','#save_form',function(e){
-            e.preventDefault();
-
-            $.ajax({
-            type: "POST",
-            url : "{{route('save')}}",
-            data: {
-               '_token': '{{csrf_token()}}',
-               'name':$("input[name='name']").val(),
-               'discription':$("input[name='discription']").val(),
-            },
-            success: function(response) {
-                // sccess case
-                $('#msg').css('display','block');
-                // console.log(response.msg);
-            },
-            error: function(response) {
-                // failed case
-                console.log(response.msg);
-            }
-        });
-
-        });
-
-    </script>
         @extends('inclouds.footer')
 </body>
 </html>
