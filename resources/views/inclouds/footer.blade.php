@@ -1,3 +1,8 @@
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
 <!-- footer -->
 <section class="footer">
     <div class="container">
@@ -49,9 +54,12 @@
   <!-- End footer -->
 
 
-  <script src="{{URL::asset('theme/defualt/js/jq.js')}}"></script>
-  <script src="{{URL::asset('theme/defualt/js/bootstrap.min.js')}}"></script>
-<script src="{{URL::asset('theme/defualt/js/all.min.js')}}"></script>
-<script src="{{URL::asset('theme/defualt/js/style.js')}}"></script>
+  {{-- <script src="{{URL::asset('theme/defualt/js/jq.js')}}"></script> --}}
+  <script type='text/javascript' src="{{URL::asset('theme/defualt/js/bootstrap.min.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('theme/defualt/js/all.min.js')}}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{{url('backend/jquery-easing/jquery.easing.min.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('theme/defualt/js/style.js')}}"></script>
 </body>
 </html>

@@ -1,11 +1,7 @@
 @extends('inclouds.master')
 
 @section('content')
-      <!-- start up scroll -->
-  <div class="scrolling ">
-    <a href="#"> <i class="fas fa-arrow-circle-up fa-2x "></i></a>
-  </div>
-  <!-- End up scroll -->
+  
   <!-- start main-->
   <main>
     <!-- slider-->

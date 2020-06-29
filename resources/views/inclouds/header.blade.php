@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="{{URL::asset('theme/defualt/css/style.css')}}">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 </head>
-<body>
+<body id="page-top">
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -68,6 +68,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">Your profile </a>
+                  @if(Auth()->user()->user_group === 1)
+                  <a class="dropdown-item" href="{{url('admin/index')}}">Your Dashboard </a>
+                  @endif
                   <a class="dropdown-item" href="#">settings </a>
 
                   <a class="dropdown-item" href="{{ route('logout')}}"
@@ -80,6 +83,7 @@
 
               </div>
             </li>
+
             @endauth
             @guest
             <li class="nav-item dropdown">

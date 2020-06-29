@@ -14,7 +14,7 @@ class loginController extends Controller
         if(!Auth::guest()){
             return redirect('admin/index')->with(['notAllowed'=> 'You can\'t Vist login page untill You logout']);
         } else{
-            return view('admin/login');
+            return view('auth/login');
         }
     }
 }

@@ -15,7 +15,7 @@ class AddUserIdToUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-           
+
         });
     }
 
@@ -28,7 +28,7 @@ class AddUserIdToUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->integer('category_id')->unsigned();
+            $table->integer('category_id')->unsigned()->nullable();
         });
     }
 }

@@ -17,7 +17,12 @@ class indexController extends Controller
         $user = User::all()->where('user_group',0);  // all users without admins
         $admins = User::all()->where('user_group',1); // all admins
         $category = ModelCategory::get(); // all categories
-       return view('admin.index',['category'=>$category, 'user'=>$user , 'admins'=>$admins, 'userNotVerified'=>$userNotVerified] );
+        if($admins == true){
+            return view('admin.index',['category'=>$category, 'user'=>$user , 'admins'=>$admins, 'userNotVerified'=>$userNotVerified] );
+        }else{
+            return redirect('index');
+        }
+
 
     }
 
